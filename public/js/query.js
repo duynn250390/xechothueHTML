@@ -33,6 +33,12 @@ $(document).ready(function () {
             }
         });
     }
+    if ($('.swiper_slideCar').length > 0) {
+        var swiper = new Swiper('.swiper_slideCar', {
+            slidesPerView: 'auto',
+            freeMode: true,
+        });
+    }
 });
 
 function menu_respontive() {
