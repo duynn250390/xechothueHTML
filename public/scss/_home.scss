@@ -1,0 +1,227 @@
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding-left: px2em(15);
+    padding-right: px2em(15);
+    margin: 0 auto;
+
+    @include maxWidth(1200px) {
+        max-width: 90%;
+    }
+
+    @include maxWidth(1080px) {
+        padding-left: px2em(10);
+        padding-right: px2em(10);
+    }
+
+    @include maxWidth(980px) {
+        max-width: 100%;
+    }
+}
+
+.paddingAuto {
+    padding-left: px2em(15);
+    padding-right: px2em(15);
+
+    @include maxWidth(1080px) {
+        padding-left: px2em(10);
+        padding-right: px2em(10);
+    }
+}
+
+.main_header {
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.aside_header {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+    align-items: center;
+    position: relative;
+
+    .main_logo {
+        width: 300px;
+
+        @include maxWidth(980px) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar_brand {
+            display: block;
+
+            img {
+                max-width: 100%;
+                width: 200px;
+
+                @include maxWidth(980px) {
+                    width: 260px;
+                }
+            }
+        }
+    }
+
+    .show_menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 32px;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+
+        span {
+            width: 32px;
+            height: 26px;
+            display: block;
+            cursor: pointer;
+
+            &.bullet__show {
+                display: none;
+                background: url(../images/icon/bulletmenu02.png);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-position: center;
+            }
+
+            &.bullet__hide {
+                display: block;
+                background: url(../images/icon/bulletmenu01.png);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-position: center;
+            }
+        }
+
+        @include maxWidth(980px) {
+            display: flex;
+        }
+    }
+
+    .main_nav {
+        @include calc('width', '100% - 300px');
+
+        @include maxWidth(980px) {
+            display: none;
+        }
+
+        .primary_menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            .item_menu {
+                margin-right: 10px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &.curent_menu {
+                    a {
+                        color: $col1;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    outline: none;
+                    color: $col2;
+                }
+
+                @include hofo() {
+                    a {
+                        color: $col1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.box_menu {
+    position: fixed;
+    width: 280px;
+    top: 0;
+    left: -280px;
+    bottom: 0;
+    background: #f7f7f7;
+    display: none;
+    @include tran_slow_03;
+
+    @include maxWidth(980px) {
+        display: block;
+    }
+
+    .primary_menu {
+        .item_menu {
+            padding: 0 10px;
+
+            &.curent_menu {
+                a {
+                    color: $col1;
+                }
+            }
+
+            a {
+                display: block;
+                color: #333;
+                text-decoration: none;
+                outline: none;
+                padding: 10.5px 0;
+                border-bottom: 1px solid #e7e7e7;
+            }
+        }
+    }
+}
+
+.menu_ovelay {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .54);
+}
+
+.content_main_father {}
+
+.main_slide {
+    .swiper_main_slide {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .swiper-wrapper {
+            display: flex;
+
+            .swiper-slide {
+                width: 100%;
+                height: 600px;
+                -ms-flex-negative: 0;
+                background: $col1;
+                flex-shrink: 0;
+                color: #fff;
+
+                &.slideshow {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 600;
+                    font-size: px2em(60);
+                }
+
+                &:nth-child(2n+1) {
+                    background: $col2;
+                }
+            }
+        }
+    }
+}
